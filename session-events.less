@@ -3,14 +3,16 @@
         max-width: 50%;
     }
 
+    /* от 8 до 31 ред са за стилизиране на евентите вдясно в лейаута, от 35 надолу са стилове и за двата евента или специфични за левия */
+
     .data-grid-row .data-grid-item-container:nth-child(even) {
         display: flex;
         justify-content: flex-end;
 
         .data-card-content.default {
             background-color: #d6e4e9;
-            margin-left: 14px; /*трябва да се помисли как ще се процедира с background-imagе, защото той променя нещата*/
-            margin-right: 37%;
+            margin-left: 14px; /*трябва да се помисли как ще се процедира, ако сложим background-imagе, защото той променя нещата*/
+            margin-right: 37%; /*трябва да се помисли как ще се процедира, ако сложим background-imagе, защото той променя нещата*/
         }
 
         .data-card-description {
@@ -22,18 +24,18 @@
         }
 
         .data-card.data-card-row.data-card-lg.data-card-clickable {
-            box-shadow: 0px -10px 0px 0px #5a8799;
-            border: 0; /* може да се махне */
+            box-shadow: 0px -10px 0px 0px rgba(90, 135, 153, 0.2);
+            border: 0; /* може да се махне, по default тия дивове мисля, че имаха бордер по 1px от всички страни */
             border-left: 5px solid #78a5b6; /* може да се махне */
         }
     }
 
-    // background-color, font-size, line-height стиловете може да се ревизират
+    // font-size и line-height стиловете съм ги нагласил да са в пиксели толкова, колкото са в pt в дизайна
 
     .data-card-content.default {
         background-color: #fef6bb;
-        margin-right: 14px;
-        margin-left: 37%;
+        margin-right: 14px; /*трябва да се помисли как ще се процедира, ако сложим background-imagе, защото той променя нещата*/
+        margin-left: 37%; /*трябва да се помисли как ще се процедира, ако сложим background-imagе, защото той променя нещата*/
     }
 
     .data-card-title.text-left {
@@ -110,7 +112,7 @@
             font-weight: 300;
             text-align: center;
             width: 50%;
-            padding-bottom: 80px; /* дали да се сложи и на двете или само на before */
+            padding-bottom: 80px; /* дали да се сложи и на двете или само на before е достатъчно? */
         }
 
         &::before {
@@ -127,7 +129,7 @@
 
     .data-card.data-card-row.data-card-lg.data-card-clickable {
         box-shadow: 0px -10px 0px 0px #e6ca11;
-        border: 0; /* може да се махне */
+        border: 0; /* може да се махне, по default тия дивове мисля, че имаха бордер по 1px от всички страни */
         border-right: 5px solid #78a5b6; /* може да се махне */
     }
 
