@@ -18,10 +18,22 @@
     .presence-course,
     .conclusion-course {
         max-width: 50%;
+        padding-bottom: 25px;
+        border-right: 2px solid #78a5b6;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
 
         .day-counter {
             display: flex;
             justify-content: flex-end;
+            box-shadow: 0px 10px 0px 0px #e6ca11;
+            padding-right: 14px;
+        }
+
+        .content-holder {
+            margin-right: 14px;
         }
 
         .heading-holder {
@@ -33,22 +45,25 @@
         }
     }
 
-    .online-sync {
-        max-width: 50%;
-        align-self: flex-end;
-
-        .heading-holder {
-            background-color: #d6e4e9;
-        }
-
-        .description-holder {
-            background-color: #f1f6f7;
-        }
-    }
-
+    .online-sync,
     .online-async {
         max-width: 50%;
         align-self: flex-end;
+        padding-bottom: 25px;
+        box-shadow: -1.9px 0px 0px 0px #78a5b6;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+
+        .day-counter {
+            box-shadow: 0px 10px 0px 0px #5a8799;
+            padding-left: 14px;
+        }
+
+        .content-holder {
+            margin-left: 14px;
+        }
 
         .heading-holder {
             background-color: #d6e4e9;
@@ -59,19 +74,43 @@
         }
     }
 
-    h2 {
+    .day-counter {
         font-size: 24px;
-        line-height: 21px;
-        font-weight: 400;
+        line-height: 24px;
+        font-weight: 300;
+        color: #a59f9b;
+    }
+
+    .heading-holder {
+        display: flex;
+        height: 155px;
+        margin-top: 10px;
+        background-image: url(https://images.unsplash.com/photo-1607166452427-7e4477079cb9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=105&h=105&q=105);
+        background-position: top 25px left 15px; /* responsive problematic, heading breaks the layout */
+        background-repeat: no-repeat;
+
+        h2 {
+            font-size: 24px;
+            line-height: 21px;
+            font-weight: 400;
+            margin-top: 10px;
+            margin-bottom: 0;
+            padding: 25px 25px 25px 155px;
+            align-self: center;
+        }
     }
 
     .description-holder {
+        padding: 25px 25px 25px 15px;
+
         h3 {
             text-transform: uppercase;
             color: #a59f9b;
             font-size: 18px;
             line-height: 21.6px;
             font-weight: 900;
+            margin: 0;
+            padding-bottom: 15px;
         }
 
         p {
@@ -79,6 +118,7 @@
             font-size: 12px;
             line-height: 16px;
             font-weight: 300;
+            margin: 0;
         }
     }
 }
