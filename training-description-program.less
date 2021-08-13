@@ -85,9 +85,11 @@
         display: flex;
         height: 155px;
         margin-top: 10px;
-        background-image: url(/images/presence-course.jpg);
+        background-image: url(images/presence-course.jpg);
         background-position: top 25px left 15px; /* responsive problematic, heading breaks the layout */
         background-repeat: no-repeat;
+        // background-size да се ограничи големината;
+        // transparency би трябвало да се оправи автоматично със смяната на svg
 
         h2 {
             font-size: 24px;
@@ -97,6 +99,7 @@
             margin-bottom: 0;
             padding: 25px 25px 25px 155px;
             align-self: center;
+            color: #6a615b;
         }
     }
 
