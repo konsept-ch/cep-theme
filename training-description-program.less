@@ -38,6 +38,7 @@
 
         .heading-holder {
             background-color: #fef6bb;
+            background-image: url(images/presence-course.svg);
         }
 
         .description-holder {
@@ -57,20 +58,41 @@
         }
 
         .day-counter {
-            box-shadow: 0px 10px 0px 0px #5a8799;
             padding-left: 14px;
         }
 
         .content-holder {
             margin-left: 14px;
         }
+    }
 
+    .online-sync {
         .heading-holder {
+            background-image: url(images/online-sync.svg);
             background-color: #d6e4e9;
+        }
+
+        .day-counter {
+            box-shadow: 0px 10px 0px 0px #5a8799;
         }
 
         .description-holder {
             background-color: #f1f6f7;
+        }
+    }
+
+    .online-async {
+        .heading-holder {
+            background-image: url(images/online-async.svg);
+            background-color: #e4e2e1;
+        }
+
+        .day-counter {
+            box-shadow: 0px 10px 0px 0px #6a615b;
+        }
+
+        .description-holder {
+            background-color: #f0efef;
         }
     }
 
@@ -85,11 +107,9 @@
         display: flex;
         height: 155px;
         margin-top: 10px;
-        background-image: url(images/presence-course.jpg);
         background-position: top 25px left 15px; /* responsive problematic, heading breaks the layout */
         background-repeat: no-repeat;
-        // background-size да се ограничи големината;
-        // transparency би трябвало да се оправи автоматично със смяната на svg
+        background-size: 95px auto;
 
         h2 {
             font-size: 24px;
