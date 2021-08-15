@@ -1,3 +1,73 @@
+// Make breaking points for media queries at 700px
+
+.course-resume {
+    background-image: url(images/resume.jpg);
+    background-position: bottom 15px left 15px;
+    background-repeat: no-repeat;
+    background-size: 95px auto;
+
+    h3 {
+        text-transform: uppercase;
+        font-size: 18px;
+        line-height: 21.6px;
+        font-weight: 900;
+        margin-top: 0;
+    }
+
+    h4 {
+        text-transform: uppercase;
+        font-size: 14px;
+        line-height: 16.8px;
+        font-weight: 900;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    h5 {
+        text-transform: lowercase;
+        font-size: 14px;
+        line-height: 16.8px;
+        font-weight: 700;
+        color: #6a615b;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    h6 {
+        text-transform: uppercase;
+        font-size: 10px;
+        line-height: 12px;
+        font-weight: 900;
+        color: #a59f9b;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .dur-label {
+        font-size: 10px;
+        line-height: 12px;
+        font-weight: 700;
+    }
+
+    .dur-info {
+        font-size: 10px;
+        line-height: 12px;
+        font-weight: 400;
+    }
+}
+
+.info-holder {
+    padding: 25px 25px 25px 130px;
+}
+
+.course-durations {
+    display: flex;
+}
+
+.duration-holder {
+    display: flex;
+}
+
 .course-type {
     display: flex;
     justify-content: space-around;
@@ -105,7 +175,7 @@
 
     .heading-holder {
         display: flex;
-        height: 155px;
+        height: 155px; /* Might add min-height here */
         margin-top: 10px;
         background-position: top 25px left 15px; /* responsive problematic, heading breaks the layout */
         background-repeat: no-repeat;
@@ -115,9 +185,9 @@
             font-size: 24px;
             line-height: 21px;
             font-weight: 400;
-            margin-top: 10px;
+            margin-top: 10px; /* subject to change */
             margin-bottom: 0;
-            padding: 25px 25px 25px 155px;
+            padding: 25px 25px 25px 155px; /* subject to change */
             align-self: center;
             color: #6a615b;
         }
