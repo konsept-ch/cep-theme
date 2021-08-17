@@ -1,10 +1,12 @@
-// Make breaking points for media queries at 745px
-
 .course-resume {
     background-image: url(images/resume.jpg);
     background-position: bottom 15px left 15px;
     background-repeat: no-repeat;
     background-size: 95px auto;
+
+    @media (max-width: 745px) {
+        background-position: center left 15px;
+    }
 
     h3 {
         text-transform: uppercase;
@@ -42,7 +44,30 @@
         margin-top: 0;
         margin-bottom: 0;
     }
+}
 
+.info-holder {
+    padding: 25px 25px 25px 130px;
+}
+
+.course-durations {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 745px) {
+        flex-direction: row;
+    }
+}
+
+.duration-holder {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 745px) {
+        flex-direction: row;
+    }
+
+    .dur-first-label,
     .dur-label {
         font-size: 12px;
         line-height: 14px;
@@ -54,18 +79,23 @@
         line-height: 14px;
         font-weight: 400;
     }
-}
 
-.info-holder {
-    padding: 25px 25px 25px 130px;
-}
+    .dur-label::before {
+        content: '| ';
+        font-size: 12px;
+        line-height: 14px;
+        font-weight: 700;
 
-.course-durations {
-    display: flex;
-}
+        @media (max-width: 745px) {
+            display: none;
+        }
+    }
 
-.duration-holder {
-    display: flex;
+    .dur-first-label::after,
+    .dur-label::after,
+    .dur-info::after {
+        content: '\00a0';
+    }
 }
 
 .course-type {
@@ -88,14 +118,13 @@
 }
 
 .courses-list {
-    display: flex;
-    flex-flow: column;
+    display: block;
 
     .presence-course,
     .conclusion-course {
-        max-width: 50%;
+        width: 100%;
         padding-bottom: 25px;
-        border-right: 2px solid #78a5b6;
+        border-right: 0;
 
         &:last-child {
             padding-bottom: 0;
@@ -105,16 +134,28 @@
             display: flex;
             justify-content: flex-end;
             box-shadow: 0px 10px 0px 0px #e6ca11;
-            padding-right: 14px;
+            padding-right: 0;
         }
 
         .content-holder {
-            margin-right: 14px;
+            margin-right: 0;
         }
 
         .heading-holder {
             background-color: #fef6bb;
             background-image: url(images/presence-course.svg);
+
+            h2::after {
+                content: 'En Salle';
+                display: block;
+                text-transform: uppercase;
+                text-align: center;
+                font-size: 24px;
+                line-height: 28.8px;
+                color: #78a5b6;
+                font-weight: 300;
+                padding-top: 8px;
+            }
         }
 
         .description-holder {
@@ -124,21 +165,36 @@
 
     .online-sync,
     .online-async {
-        max-width: 50%;
-        align-self: flex-end;
+        width: 100%;
         padding-bottom: 25px;
-        box-shadow: -1.9px 0px 0px 0px #78a5b6;
+        box-shadow: none;
 
         &:last-child {
             padding-bottom: 0;
         }
 
         .day-counter {
-            padding-left: 14px;
+            display: flex;
+            justify-content: flex-end;
+            padding-left: 0;
+        }
+
+        .heading-holder {
+            h2::after {
+                content: 'En Ligne';
+                display: block;
+                text-transform: uppercase;
+                text-align: center;
+                font-size: 24px;
+                line-height: 28.8px;
+                color: #78a5b6;
+                font-weight: 300;
+                padding-top: 8px;
+            }
         }
 
         .content-holder {
-            margin-left: 14px;
+            margin-left: 0;
         }
     }
 
@@ -179,26 +235,25 @@
         color: #a59f9b;
     }
 
-    @media (min-width: 745px) {
-        .heading-holder {
-            display: flex;
-            min-height: 140px;
-            margin-top: 10px;
-            background-position: center left 15px; /* responsive problematic, heading breaks the layout */
-            background-repeat: no-repeat;
-            background-size: 95px auto;
-            padding: 15px;
+    .heading-holder {
+        display: flex;
+        justify-content: center;
+        min-height: 140px;
+        margin-top: 10px;
+        background-position: center top 15px;
+        background-repeat: no-repeat;
+        background-size: 95px auto;
+        padding: 15px;
 
-            h2 {
-                font-size: 24px;
-                line-height: 21px;
-                font-weight: 400;
-                margin-top: 10px;
-                margin-bottom: 0;
-                padding: 0 0 0 155px;
-                align-self: center;
-                color: #6a615b;
-            }
+        h2 {
+            font-size: 24px;
+            line-height: 21px;
+            font-weight: 400;
+            margin-top: 10px;
+            margin-bottom: 0;
+            padding: 100px 0 0 0;
+            align-self: center;
+            color: #6a615b;
         }
     }
 
@@ -221,6 +276,63 @@
             line-height: 16px;
             font-weight: 300;
             margin: 0;
+        }
+    }
+}
+
+@media (min-width: 745px) {
+    .courses-list {
+        display: flex;
+        flex-flow: column;
+
+        .presence-course,
+        .conclusion-course {
+            max-width: 50%;
+            border-right: 2px solid #78a5b6;
+
+            .day-counter {
+                padding-right: 14px;
+            }
+
+            .heading-holder {
+                h2::after {
+                    display: none;
+                }
+            }
+
+            .content-holder {
+                margin-right: 14px;
+            }
+        }
+
+        .online-sync,
+        .online-async {
+            max-width: 50%;
+            align-self: flex-end;
+            box-shadow: -1.9px 0px 0px 0px #78a5b6;
+
+            .day-counter {
+                justify-content: flex-start;
+                padding-left: 14px;
+            }
+
+            .heading-holder {
+                h2::after {
+                    display: none;
+                }
+            }
+
+            .content-holder {
+                margin-left: 14px;
+            }
+        }
+
+        .heading-holder {
+            background-position: center left 15px;
+
+            h2 {
+                padding: 0 0 0 155px;
+            }
         }
     }
 }
