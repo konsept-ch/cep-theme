@@ -1,235 +1,243 @@
 .widget[style*='254'] {
-  counter-reset: eventCounter;
+    counter-reset: eventCounter;
 
-  .data-grid-item-container .data-card {
-    max-width: 50%;
-  }
+    .data-grid-item-container .data-card {
+        max-width: 50%;
+    }
 
-  /* от 8 до 31 ред са за стилизиране на евентите вдясно в лейаута, от 35 надолу са стилове и за двата евента или специфични за левия */
+    /* от 8 до 31 ред са за стилизиране на евентите вдясно в лейаута, от 35 надолу са стилове и за двата евента или специфични за левия */
 
-  .data-grid-row .data-grid-item-container {
-    counter-increment: eventCounter;
-    padding: 0;
-    position: relative;
-    display: flex;
-    flex-direction: column;
+    .data-grid-row .data-grid-item-container {
+        counter-increment: eventCounter;
+        padding: 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
 
-    .data-card-content {
-      max-width: none;
-      background-position: top 25px left 15px;
-      background-repeat: no-repeat;
-      background-size: 105px auto;
+        .data-card-content {
+            max-width: none;
+            background-position: top 25px left 15px;
+            background-repeat: no-repeat;
+            background-size: 105px auto;
 
-      &::before {
-        content: 'Jour ' counter(eventCounter);
-        position: absolute;
-        top: -24px;
+            &::before {
+                content: 'Jour ' counter(eventCounter);
+                position: absolute;
+                top: -24px;
+                font-size: 24px;
+                line-height: 24px;
+                font-weight: 300;
+                color: #a59f9b;
+            }
+        }
+
+        .data-card-title,
+        .data-card-footer {
+            margin-left: 145px;
+        }
+
+        .data-card-footer {
+            padding-left: 0;
+        }
+
+        .data-card:not(.is-event-online) {
+            &:hover {
+                .data-card-content {
+                    box-shadow: 14px 0 0 0 #dddddd;
+                }
+            }
+
+            .data-card-content.default {
+                background-color: #fef6bb;
+                background-image: url('images/presence-course.svg');
+                margin-right: 14px; /*трябва да се помисли как ще се процедира, ако сложим background-imagе, защото той променя нещата*/
+                // margin-left: 37%; /*трябва да се помисли как ще се процедира, ако сложим background-imagе, защото той променя нещата*/
+
+                &::before {
+                    right: 14px;
+                }
+            }
+
+            &.data-card-row.data-card-lg.data-card-clickable {
+                box-shadow: inset 0 10px 0 0 #e6ca11, 2px 0 0 0 #78a5b6;
+            }
+        }
+
+        .data-card.data-card-clickable.is-event-online {
+            align-self: flex-end;
+
+            &:hover {
+                .data-card-content {
+                    box-shadow: -17px 0 0 0 #dddddd;
+                }
+            }
+
+            .data-card-content.default {
+                background-color: #d6e4e9;
+                background-image: url('images/online-sync.svg');
+                margin-left: 19px; /*трябва да се помисли как ще се процедира, ако сложим background-imagе, защото той променя нещата*/
+                // margin-right: 37%; /*трябва да се помисли как ще се процедира, ако сложим background-imagе, защото той променя нещата*/
+
+                &::before {
+                    left: 19px;
+                }
+            }
+
+            .data-card-description {
+                background-color: #f1f6f7;
+            }
+
+            .data-card-footer {
+                background-color: #d6e4e9;
+            }
+
+            &.data-card-row.data-card-lg {
+                box-shadow: inset 2px 0 0 0 #78a5b6, inset 0 10px 0 0 #5a8799;
+                border: 0; /* може да се махне, по default тия дивове мисля, че имаха бордер по 1px от всички страни */
+                // border-left: 5px solid #78a5b6; /* може да се махне */
+            }
+        }
+
+        .data-card.is-event-online:not(.has-event-url) {
+            .data-card-content.default {
+                background-color: #e4e2e1;
+                background-image: url('images/online-async.svg');
+            }
+
+            .data-card-description {
+                background-color: #f0efef;
+            }
+
+            .data-card-footer {
+                background-color: #e4e2e1;
+            }
+
+            &.data-card-row.data-card-lg.data-card-clickable {
+                box-shadow: inset 2px 0 0 0 #78a5b6, inset 0 10px 0 0 #6a615b;
+            }
+        }
+    }
+
+    .data-card-title.text-left {
         font-size: 24px;
-        line-height: 24px;
-        font-weight: 300;
-        color: #a59f9b;
-      }
-    }
+        font-weight: 400;
+        margin-top: 25px;
+        margin-bottom: 4px;
+        color: #6a615b;
 
-    .data-card-title,
-    .data-card-footer {
-      margin-left: 145px;
-    }
+        small {
+            display: flex;
+            flex-direction: column;
+            font-size: 12px;
+            line-height: 16px;
+            font-weight: 700;
+            color: #6a615b;
+            margin-top: 20px;
 
-    .data-card-footer {
-      padding-left: 0;
-    }
-
-    .data-card:not(.is-event-online) {
-      &:hover {
-        .data-card-content {
-          box-shadow: 14px 0 0 0 #dddddd;
+            &::before {
+                content: 'DATE | HORAIRE';
+                font-size: 12px;
+                line-height: 14.4px;
+                font-weight: 900;
+                color: #a59f9b;
+            }
         }
-      }
-
-      .data-card-content.default {
-        background-color: #fef6bb;
-        background-image: url('images/presence-course.svg');
-        margin-right: 14px; /*трябва да се помисли как ще се процедира, ако сложим background-imagе, защото той променя нещата*/
-        // margin-left: 37%; /*трябва да се помисли как ще се процедира, ако сложим background-imagе, защото той променя нещата*/
-
-        &::before {
-          right: 14px;
-        }
-      }
-
-      &.data-card-row.data-card-lg.data-card-clickable {
-        box-shadow: inset 0 10px 0 0 #e6ca11, 2px 0 0 0 #78a5b6;
-      }
     }
 
-    .data-card.data-card-clickable.is-event-online {
-      align-self: flex-end;
-
-      &:hover {
-        .data-card-content {
-          box-shadow: -17px 0 0 0 #dddddd;
-        }
-      }
-
-      .data-card-content.default {
-        background-color: #d6e4e9;
-        background-image: url('images/online-sync.svg');
-        margin-left: 19px; /*трябва да се помисли как ще се процедира, ако сложим background-imagе, защото той променя нещата*/
-        // margin-right: 37%; /*трябва да се помисли как ще се процедира, ако сложим background-imagе, защото той променя нещата*/
-
-        &::before {
-          left: 19px;
-        }
-      }
-
-      .data-card-description {
-        background-color: #f1f6f7;
-      }
-
-      .data-card-footer {
-        background-color: #d6e4e9;
-      }
-
-      &.data-card-row.data-card-lg {
-        box-shadow: inset 2px 0 0 0 #78a5b6, inset 0 10px 0 0 #5a8799;
-        border: 0; /* може да се махне, по default тия дивове мисля, че имаха бордер по 1px от всички страни */
-        // border-left: 5px solid #78a5b6; /* може да се махне */
-      }
-    }
-
-    .data-card.is-event-online:not(.has-event-url) {
-      .data-card-content.default {
-        background-color: #e4e2e1;
-        background-image: url('images/online-async.svg');
-      }
-
-      .data-card-description {
-        background-color: #f0efef;
-      }
-
-      .data-card-footer {
-        background-color: #e4e2e1;
-      }
-
-      &.data-card-row.data-card-lg.data-card-clickable {
-        box-shadow: inset 2px 0 0 0 #78a5b6, inset 0 10px 0 0 #6a615b;
-      }
-    }
-  }
-
-  .data-card-title.text-left {
-    font-size: 24px;
-    font-weight: 400;
-    margin-top: 25px;
-    margin-bottom: 4px;
-    color: #6a615b;
-
-    small {
-      display: flex;
-      flex-direction: column;
-      font-size: 12px;
-      line-height: 16px;
-      font-weight: 700;
-      color: #6a615b;
-      margin-top: 20px;
-
-      &::before {
-        content: 'DATE | HORAIRE';
+    .data-card-description {
+        display: flex;
+        flex-direction: column;
+        order: 3;
+        max-height: none;
+        margin-bottom: 0;
+        padding: 20px 15px;
+        background-color: #fffdeb;
+        color: #6a615b;
         font-size: 12px;
-        line-height: 14.4px;
-        font-weight: 900;
-        color: #a59f9b;
-      }
-    }
-  }
+        line-height: 16px;
+        font-weight: 300;
 
-  .data-card-description {
-    display: flex;
-    flex-direction: column;
-    order: 3;
-    max-height: none;
-    margin-bottom: 0;
-    padding: 20px 15px;
-    background-color: #fffdeb;
-    color: #6a615b;
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: 300;
-
-    &::before {
-      content: 'Description';
-      color: #a59f9b;
-      font-size: 18px;
-      line-height: 21.6px;
-      font-weight: 900;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-    }
-  }
-
-  .data-card-footer {
-    background-color: #fef6bb;
-    display: flex;
-    flex-direction: column;
-    order: 2;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 16px;
-    color: #6a615b;
-
-    &::before {
-      content: 'LIEU';
-      font-size: 12px;
-      line-height: 14.4px;
-      font-weight: 900;
-      font-style: normal;
-      text-align: left;
-      color: #a59f9b;
-    }
-  }
-
-  .data-grid-content {
-    position: relative;
-
-    &::before,
-    &::after {
-      font-size: 24px;
-      line-height: 28.8px;
-      color: #78a5b6;
-      font-weight: 300;
-      text-align: center;
-      width: 50%;
-      padding-bottom: 80px; /* дали да се сложи и на двете или само на before е достатъчно? */
+        &::before {
+            content: 'Description';
+            color: #a59f9b;
+            font-size: 18px;
+            line-height: 21.6px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
     }
 
-    &::before {
-      content: 'EN SALLE';
+    .data-card-footer {
+        background-color: #fef6bb;
+        display: flex;
+        flex-direction: column;
+        order: 2;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 16px;
+        color: #6a615b;
+
+        &::before {
+            content: 'LIEU';
+            font-size: 12px;
+            line-height: 14.4px;
+            font-weight: 900;
+            font-style: normal;
+            text-align: left;
+            color: #a59f9b;
+        }
     }
 
-    &::after {
-      content: 'EN LIGNE';
-      position: absolute;
-      top: 0;
-      right: 0;
+    .data-grid-content {
+        position: relative;
+
+        &::before,
+        &::after {
+            font-size: 24px;
+            line-height: 28.8px;
+            color: #78a5b6;
+            font-weight: 300;
+            text-align: center;
+            width: 50%;
+            padding-bottom: 80px; /* дали да се сложи и на двете или само на before е достатъчно? */
+        }
+
+        &::before {
+            content: 'EN SALLE';
+        }
+
+        &::after {
+            content: 'EN LIGNE';
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
     }
-  }
 
-  .data-card.data-card-row.data-card-lg.data-card-clickable {
-    padding-top: 10px;
-    padding-bottom: 50px;
-    border: 0; /* може да се махне, по default тия дивове мисля, че имаха бордер по 1px от всички страни */
+    .data-card.data-card-row.data-card-lg.data-card-clickable {
+        padding-top: 10px;
+        padding-bottom: 50px;
+        border: 0; /* може да се махне, по default тия дивове мисля, че имаха бордер по 1px от всички страни */
 
-    &:hover {
-      background-color: #ffffff;
+        &:hover {
+            background-color: #ffffff;
 
-      .data-card-content {
-        box-shadow: 14px 0 0 0 #dddddd;
-      }
+            .data-card-content {
+                box-shadow: 14px 0 0 0 #dddddd;
+            }
+        }
     }
-  }
 
-  .data-card-header {
-    display: none; /* скриване на картинката от евентите */
-  }
+    .data-card-header {
+        display: none; /* скриване на картинката от евентите */
+    }
+}
+
+button.data-card-icon.default {
+    display: none;
+}
+
+a.data-card-icon.default {
+    display: none;
 }

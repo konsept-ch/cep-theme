@@ -80,6 +80,10 @@
         font-weight: 400;
     }
 
+    .dur-first-label::before {
+        display: none;
+    }
+
     .dur-label::before {
         content: '| ';
         font-size: 12px;
@@ -243,6 +247,10 @@
         background-repeat: no-repeat;
         background-size: 95px auto;
         padding: 15px;
+
+        @media (max-width: 745px) {
+            justify-content: center;
+        }
 
         h2 {
             font-size: 24px;
